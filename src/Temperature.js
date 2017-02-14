@@ -22,7 +22,16 @@ class Temperature extends React.Component {
   }
 
   render() {
-    let temperatures = this.state.measurements.map(measurement => {
+    if (this.state.error) return this.renderError(this.state.error);
+    else return this.renderTemperatures(this.state.measurements);
+  }
+
+  renderError(error) {
+    return <div>{ error.toString() } </div>
+  }
+
+  renderTemperatures(measurements) {
+    let temperatures = measurements.map(measurement => {
       let celsius = Math.round(measurement.sensors[0].temperature.celsius * 10) / 10;
       let lastUpdate = moment.unix(measurement.seconds).format('ddd HH:mm a');
       return <div className="temperature">
@@ -43,7 +52,9 @@ class Temperature extends React.Component {
         });
       })
       .catch(error => {
-        console.log(error);
+        this.setState({
+          error: error
+        })
       });
   }
 
