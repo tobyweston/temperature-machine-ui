@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import Temperature from './Temperature';
 
 ReactDOM.render(
-  <App />,
+  <Temperature />,
   document.getElementById('root')
 );
