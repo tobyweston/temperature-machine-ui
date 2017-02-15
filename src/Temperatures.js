@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import Temperature from './Temperature'
 
-class Temperature extends React.Component {
+class Temperatures extends React.Component {
 
   constructor(props) {
     super(props);
@@ -33,7 +34,7 @@ class Temperature extends React.Component {
   renderTemperatures(measurements) {
     return <div> {
       measurements.map(measurement => {
-        return <Temperature celsius={measurements.sensors[0].temperature.celsius} lastUpdate={measurement.seconds} source={measurement.host} />
+        return <Temperature celsius={measurement.sensors[0].temperature.celsius} lastUpdate={measurement.seconds} source={measurement.host} />
       })
     } </div>;
   }
@@ -54,4 +55,4 @@ class Temperature extends React.Component {
 
 }
 
-export default Temperature;
+export default Temperatures;
