@@ -3,10 +3,6 @@ import moment from 'moment';
 
 class Temperature extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const celsius = Math.round(this.props.celsius * 10) / 10;
     const lastUpdate = moment.unix(this.props.lastUpdate).format('ddd HH:mm a');
