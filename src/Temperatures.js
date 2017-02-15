@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import moment from 'moment';
 
 class Temperature extends React.Component {
 
@@ -22,26 +21,21 @@ class Temperature extends React.Component {
   }
 
   render() {
-    if (this.state.error) return this.renderError(this.state.error);
-    else return this.renderTemperatures(this.state.measurements);
+    const element = this.state.error ? this.renderError(this.state.error) : this.renderTemperatures(this.state.measurements);
+
+    return <div><p className="lead">Current Temperature</p>{ element }</div>
   }
 
   renderError(error) {
-    return <div>{ error.toString() } </div>
+    return <span>{ error.toString() }</span>
   }
 
   renderTemperatures(measurements) {
-    let temperatures = measurements.map(measurement => {
-      let celsius = Math.round(measurement.sensors[0].temperature.celsius * 10) / 10;
-      let lastUpdate = moment.unix(measurement.seconds).format('ddd HH:mm a');
-      return <div className="temperature">
-        <h1><span className="temperature">{ celsius } °C</span></h1>
-        <p className="source">{ measurement.host }</p>
-        <span className="updated small">updated: { lastUpdate }</span>
-      </div>;
-    });
-
-    return <div>{ temperatures }</div>
+    return <div> {
+      measurements.map(measurement => {
+        return <Temperature celsius={measurements.sensors[0].temperature.celsius} lastUpdate={measurement.seconds} source={measurement.host} />
+      })
+    } </div>;
   }
 
   getCurrentTemperatures() {

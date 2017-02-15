@@ -13,7 +13,6 @@ class App extends Component {
         <Jumbotron>
           <Grid>
             <Col md="3">
-              <p className="lead">Current Temperature</p>
               <Temperatures />
             </Col>
             <Col md="9">
