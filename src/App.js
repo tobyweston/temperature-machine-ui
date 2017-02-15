@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Temperature from './Temperature';
+import Temperatures from './Temperatures';
 import Band from './Band';
 import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
@@ -14,7 +14,7 @@ class App extends Component {
           <Grid>
             <Col md="3">
               <p className="lead">Current Temperature</p>
-              <Temperature />
+              <Temperatures />
             </Col>
             <Col md="9">
               <p className="lead">Last 24 Hours</p>
