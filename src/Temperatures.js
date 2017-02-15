@@ -12,7 +12,7 @@ class Temperature extends React.Component {
 
   componentDidMount() {
     this.timerId = setInterval(() => {
-      this.getCurrentTemperatures();
+      this.fetchCurrentTemperatures();
     }, 1000)
   }
 
@@ -38,7 +38,7 @@ class Temperature extends React.Component {
     } </div>;
   }
 
-  getCurrentTemperatures() {
+  fetchCurrentTemperatures() {
     axios.get('http://localhost:11900/temperatures/average')
       .then(response => {
         this.setState({
