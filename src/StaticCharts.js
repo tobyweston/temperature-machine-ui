@@ -3,7 +3,10 @@ import { Grid, Row, Col } from 'react-bootstrap';
 
 class StaticCharts extends React.Component {
 
-  server = "http://localhost:11900/";
+  constructor(props) {
+    super(props);
+    this.server = "http://localhost:11900/";
+  }
 
   render() {
     return (
