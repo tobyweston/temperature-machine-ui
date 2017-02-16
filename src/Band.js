@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Band.css';
+import './css/band.css';
 
 class Band extends React.Component {
 
