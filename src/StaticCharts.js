@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import ImageLoader from 'react-imageloader';
+import Spinner from './Spinner';
 
 class StaticCharts extends React.Component {
 
@@ -8,21 +10,37 @@ class StaticCharts extends React.Component {
     this.server = "http://localhost:11900/";
   }
 
+  preloader() {
+    return <Spinner/>
+  }
+
   render() {
+    const imagePros = {
+      width: "320",
+      height: "160",
+      role: "presentation"
+    }
+
     return (
       <Grid>
         <Row>
           <Col md={4}>
             <p className="lead">24 Hours</p>
-            <a href={this.server + "temperature-1-days.png"}><img role="presentation" src={this.server + "temperature-1-days.png"} width="320" height="160"/></a>
+            <ImageLoader src={this.server + "temperature-1-days.png"} imgProps={imagePros} wrapper={React.DOM.div} preloader={this.preloader}>
+              Image unavailable
+            </ImageLoader>
           </Col>
           <Col md={4}>
             <p className="lead">7 Days</p>
-            <a href={this.server + "temperature-7-days.png"}><img role="presentation" src={this.server + "temperature-7-days.png"} width="320" height="160"/></a>
+            <ImageLoader src={this.server + "temperature-7-days.png"} imgProps={imagePros} wrapper={React.DOM.div} preloader={this.preloader}>
+              Image unavailable
+            </ImageLoader>
           </Col>
           <Col md={4}>
             <p className="lead">1 Month</p>
-            <a href={this.server + "temperature-30-days.png"}><img role="presentation" src={this.server + "temperature-30-days.png"} width="320" height="160"/></a>
+            <ImageLoader src={this.server + "temperature-30-days.png"} imgProps={imagePros} wrapper={React.DOM.div} preloader={this.preloader}>
+              Image unavailable
+            </ImageLoader>
           </Col>
         </Row>
       </Grid>
