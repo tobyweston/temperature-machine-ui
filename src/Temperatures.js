@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import Temperature from './Temperature'
+import Spinner from './Spinner';
 
 class Temperatures extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
+      error: null,
       measurements: []
     }
   }
@@ -22,7 +25,13 @@ class Temperatures extends React.Component {
   }
 
   render() {
-    const element = this.state.error ? this.renderError(this.state.error) : this.renderTemperatures(this.state.measurements);
+    let element = null;
+    if (this.state.loading === true)
+      element = <Spinner/>;
+    else if (this.state.error)
+      element = this.renderError(this.state.error);
+    else
+      element = this.renderTemperatures(this.state.measurements);
 
     return <div><p className="lead">Current Temperature</p>{ element }</div>
   }
@@ -43,11 +52,14 @@ class Temperatures extends React.Component {
     axios.get('http://localhost:11900/temperatures/average')
       .then(response => {
         this.setState({
+          loading: false,
+          error: null,
           measurements: response.data.measurements
         });
       })
       .catch(error => {
         this.setState({
+          loading: false,
           error: error
         })
       });
