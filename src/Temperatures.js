@@ -43,7 +43,7 @@ class Temperatures extends React.Component {
   renderTemperatures(measurements) {
     return <div> {
       measurements.map(measurement => {
-        return <Temperature key={measurement.host} celsius={measurement.sensors[0].temperature.celsius} lastUpdate={measurement.seconds} source={measurement.host} />
+        return <Temperature key={measurement.host} sensors={measurement.sensors} lastUpdate={measurement.seconds} source={measurement.host} />
       })
     } </div>;
   }
