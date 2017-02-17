@@ -8,6 +8,7 @@ class Temperatures extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      showAveragedSensors: true,
       loading: true,
       error: null,
       measurements: []
@@ -15,6 +16,8 @@ class Temperatures extends React.Component {
   }
 
   componentDidMount() {
+    // this.fetchCurrentTemperatures(); // initialise?
+
     this.timerId = setInterval(() => {
       this.fetchCurrentTemperatures();
     }, 1000)
@@ -33,7 +36,10 @@ class Temperatures extends React.Component {
     else
       element = this.renderTemperatures(this.state.measurements);
 
-    return <div><p className="lead">Current Temperature</p>{ element }</div>
+    return <div>
+      <p className="lead">Current Temperature <a className="small" href="" onClick={(event) => { this.toggleAveraging(event) }}>{this.toggleString()}</a></p>
+      { element }
+    </div>
   }
 
   renderError(error) {
@@ -49,20 +55,39 @@ class Temperatures extends React.Component {
   }
 
   fetchCurrentTemperatures() {
-    axios.get('http://localhost:11900/temperatures/average')
-      .then(response => {
-        this.setState({
-          loading: false,
-          error: null,
-          measurements: response.data.measurements
-        });
-      })
-      .catch(error => {
-        this.setState({
-          loading: false,
-          error: error
+    let url = null;
+    if (this.state.showAveragedSensors === true)
+      url = 'http://localhost:11900/temperatures/average';
+    else
+      url = 'http://localhost:11900/temperatures';
+
+    axios.get(url)
+        .then(response => {
+          this.setState({
+            loading: false,
+            error: null,
+            measurements: response.data.measurements
+          });
         })
-      });
+        .catch(error => {
+          this.setState({
+            loading: false,
+            error: error
+          })
+        });
+  }
+
+  toggleString() {
+    return this.state.showAveragedSensors ? 'all' : 'average';
+  }
+
+  toggleAveraging(event) {
+    event.preventDefault();
+    this.setState((previous, props) => ({
+      showAveragedSensors: !previous.showAveragedSensors
+    }), () => {
+      this.fetchCurrentTemperatures(); // a callback run after setState is applied
+    });
   }
 
 }
