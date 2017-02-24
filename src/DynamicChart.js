@@ -34,7 +34,7 @@ class DynamicChart extends React.Component {
           type: 'time',
           time: {
             displayFormats: {
-              quarter: 'HH:mm'
+              hour: 'hh:mm'
             }
           }
         }]
