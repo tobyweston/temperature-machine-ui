@@ -23,6 +23,9 @@ class DynamicChart extends React.Component {
   render() {
     const options = {
       spanGaps: false,
+      legend: {
+        position: 'bottom'
+      },
       scales: {
         yAxes: [{
           scaleLabel: {
