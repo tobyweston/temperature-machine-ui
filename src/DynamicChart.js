@@ -24,6 +24,12 @@ class DynamicChart extends React.Component {
     const options = {
       spanGaps: false,
       scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Temperature (°C)'
+          }
+        }],
         xAxes: [{
           type: 'time',
           time: {
@@ -62,7 +68,8 @@ class DynamicChart extends React.Component {
                     fill: false,
                     radius: 0,
                     spanGaps: false,
-                    borderColor: colors[index]
+                    borderColor: colors[index],
+                    backgroundColor: colors[index]
                   })
               )
             }
