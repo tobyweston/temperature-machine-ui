@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Line} from "react-chartjs-2";
+import Spinner from './Spinner';
 
 class DynamicChart extends React.Component {
 
@@ -8,6 +9,7 @@ class DynamicChart extends React.Component {
     super(props);
     this.state = {
       loading: true,
+      error: null,
       chartData: {
         datasets: [ ]
       },
@@ -33,8 +35,16 @@ class DynamicChart extends React.Component {
       }
     };
 
+    let element = null;
+    if (this.state.loading === true)
+      element = <Spinner/>;
+    else if (this.state.error)
+      element = <pre>{ this.state.error.toString() }</pre>
+    else
+      element = <Line data={ this.state.chartData } options={options}/>
+
     return <div>
-      <Line data={this.state.chartData} options={options}/>
+      { element }
     </div>
   }
 
@@ -43,14 +53,21 @@ class DynamicChart extends React.Component {
         .then(response => {
           this.setState({
             loading: false,
+            error: null,
             chartData: {
-              datasets: response.data
+              datasets: response.data.map(dataset =>
+                  Object.assign({}, dataset, {
+                    fill: false,
+                    radius: 0
+                  })
+              )
             }
           });
         })
         .catch(error => {
           this.setState({
-            loading: false
+            loading: false,
+            error: error
           })
         });
   }
