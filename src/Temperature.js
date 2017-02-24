@@ -1,5 +1,4 @@
-import React from 'react';
-import moment from 'moment';
+import React from "react";
 
 class Temperature extends React.Component {
 
