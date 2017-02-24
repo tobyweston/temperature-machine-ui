@@ -15,7 +15,7 @@ class DynamicChart extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchXml();
+    this.fetchJson();
   }
 
   render() {
@@ -38,7 +38,7 @@ class DynamicChart extends React.Component {
     </div>
   }
 
-  fetchXml() {
+  fetchJson() {
     axios.get('http://localhost:11900/temperature.json')
         .then(response => {
           this.setState({
