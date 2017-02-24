@@ -49,16 +49,20 @@ class DynamicChart extends React.Component {
   }
 
   fetchJson() {
+    const colors = ['#4572A7', '#AA4643', '#89A54E', '#80699B', '#3D96AE', '#DB843D', '#92A8CD', '#A47D7C', '#B5CA92'];
+
     axios.get('http://localhost:11900/temperature.json')
         .then(response => {
           this.setState({
             loading: false,
             error: null,
             chartData: {
-              datasets: response.data.map(dataset =>
+              datasets: response.data.map((dataset, index) =>
                   Object.assign({}, dataset, {
                     fill: false,
-                    radius: 0
+                    radius: 0,
+                    spanGaps: false,
+                    borderColor: colors[index]
                   })
               )
             }
