@@ -4,6 +4,7 @@ import Band from './Band';
 import StaticCharts from './StaticCharts';
 import { Jumbotron, Grid, Col } from 'react-bootstrap';
 import DynamicChart from './DynamicChart';
+import './css/app.css';
 
 class App extends Component {
   render() {
@@ -24,6 +25,12 @@ class App extends Component {
         </Jumbotron>
 
         <StaticCharts />
+
+        <hr/>
+
+        <footer>
+          <p>&copy; 2016-2017 <a href="https://github.com/tobyweston/temperature-machine">toby weston</a></p>
+        </footer>
 
       </div>
     );
