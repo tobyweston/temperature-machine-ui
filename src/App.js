@@ -18,7 +18,6 @@ class App extends Component {
               <Temperatures />
             </Col>
             <Col md={9}>
-              <p className="lead">Last 24 Hours</p>
               <DynamicChart/>
             </Col>
           </Grid>

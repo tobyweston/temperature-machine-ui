@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import {Line} from "react-chartjs-2";
 import Spinner from './Spinner';
+import { Glyphicon } from 'react-bootstrap';
+import './css/dynamicchart.css';
+
 
 class DynamicChart extends React.Component {
 
@@ -48,12 +51,17 @@ class DynamicChart extends React.Component {
     if (this.state.loading === true)
       element = <Spinner/>;
     else if (this.state.error)
-      element = <pre>{ this.state.error.toString() }</pre>
+      element = <pre>{ this.state.error.toString() }</pre>;
     else
-      element = <Line data={ this.state.chartData } options={options}/>
+      element = <Line data={ this.state.chartData } options={options}/>;
 
     return <div>
-      { element }
+      <div className="chart-heading">
+        <p>Last 24 Hours</p><a className="link" href="" onClick={(event) => { this.refreshChart(event) }}><Glyphicon glyph="refresh"/></a>
+      </div>
+      <div className="chart-area">
+        { element }
+      </div>
     </div>
   }
 
@@ -86,6 +94,10 @@ class DynamicChart extends React.Component {
         });
   }
 
+  refreshChart(event) {
+    event.preventDefault();
+    this.fetchJson();
+  }
 }
 
 export default DynamicChart;

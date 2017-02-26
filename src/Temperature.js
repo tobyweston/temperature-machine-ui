@@ -1,4 +1,5 @@
 import React from "react";
+import './css/temperature.css';
 
 class Temperature extends React.Component {
 
@@ -11,9 +12,9 @@ class Temperature extends React.Component {
 
   renderTemperature(sensor) {
     const celsius = Math.round(sensor.temperature.celsius * 10) / 10;
-    return <div className="temperature" key={sensor.name}>
-      <h1><span className="temperature">{ celsius } °C</span></h1>
-      <p className="source">{ this.props.source } <span className="small">({ sensor.name.toLowerCase() })</span></p>
+    return <div key={sensor.name}>
+      <span className="temperature">{ celsius }</span> <span className="scale">°C</span>
+      <p className="source">{ this.props.source } <span className="sensor">({ sensor.name })</span></p>
     </div>;
 
   }

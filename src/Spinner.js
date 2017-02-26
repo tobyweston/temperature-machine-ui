@@ -5,7 +5,7 @@ import './css/spinner.css';
 class Spinner extends React.Component {
 
   render() {
-    return <img className="spinner" src="images/spinner.gif" role="presentation"/>
+    return <div><img className="spinner" src="images/spinner.gif" role="presentation"/></div>
   }
 
 }

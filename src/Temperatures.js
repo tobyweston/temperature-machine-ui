@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Temperature from './Temperature'
 import Spinner from './Spinner';
+import './css/temperatures.css';
 
 class Temperatures extends React.Component {
 
@@ -37,8 +38,12 @@ class Temperatures extends React.Component {
       element = this.renderTemperatures(this.state.measurements);
 
     return <div>
-      <p className="lead">Current Temperature <a className="small" href="" onClick={(event) => { this.toggleAveraging(event) }}>{this.toggleString()}</a></p>
-      { element }
+      <div className="temperatures-heading">
+        <p>Current Temperature</p><a className="link" href="" onClick={(event) => { this.toggleAveraging(event) }}>{this.toggleString()}</a>
+      </div>
+      <div className="temperatures-area">
+        { element }
+      </div>
     </div>
   }
 
@@ -78,7 +83,7 @@ class Temperatures extends React.Component {
   }
 
   toggleString() {
-    return this.state.showAveragedSensors ? 'all' : 'average';
+    return this.state.showAveragedSensors ? 'all sensors' : 'average';
   }
 
   toggleAveraging(event) {

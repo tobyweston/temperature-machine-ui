@@ -1,0 +1,17 @@
+.temperature {
+    font-weight: 500;
+    font-size: 60px;
+}
+
+.scale {
+    font-size: 30px;
+}
+
+.source {
+    text-transform: lowercase;
+}
+
+.sensor {
+    font-size: 65%;
+    color: #777;
+}

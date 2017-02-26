@@ -1,0 +1,12 @@
+.link {
+    padding-left: 10px;
+    font-size: 85%;
+}
+
+.temperatures-heading p {
+    display: inline-block;
+}
+
+.temperatures-area {
+    margin-top: 5px;
+}
