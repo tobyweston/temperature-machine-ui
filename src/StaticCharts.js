@@ -1,46 +1,21 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import ImageLoader from 'react-imageloader';
-import Spinner from './Spinner';
+import RrdChart from './RrdChart';
 
 class StaticCharts extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.server = "http://localhost:11900/";
-  }
-
-  preloader() {
-    return <Spinner/>
-  }
-
   render() {
-    const imagePros = {
-      width: "320",
-      height: "160",
-      role: "presentation"
-    }
-
     return (
       <Grid>
         <Row>
           <Col md={4}>
-            <p className="lead">24 Hours</p>
-            <ImageLoader src={this.server + "temperature-1-days.png"} imgProps={imagePros} wrapper={React.DOM.div} preloader={this.preloader}>
-              Image unavailable
-            </ImageLoader>
+            <RrdChart label="24 Hours" file="temperature-1-days.png"/>
           </Col>
           <Col md={4}>
-            <p className="lead">7 Days</p>
-            <ImageLoader src={this.server + "temperature-7-days.png"} imgProps={imagePros} wrapper={React.DOM.div} preloader={this.preloader}>
-              Image unavailable
-            </ImageLoader>
+            <RrdChart label="7 Days" file="temperature-7-days.png"/>
           </Col>
           <Col md={4}>
-            <p className="lead">1 Month</p>
-            <ImageLoader src={this.server + "temperature-30-days.png"} imgProps={imagePros} wrapper={React.DOM.div} preloader={this.preloader}>
-              Image unavailable
-            </ImageLoader>
+            <RrdChart label="1 Month" file="temperature-30-days.png"/>
           </Col>
         </Row>
       </Grid>
