@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Temperatures from './Temperatures';
 import Band from './Band';
-import StaticCharts from './StaticCharts';
+import RrdCharts from './RrdCharts';
 import { Jumbotron, Grid, Col } from 'react-bootstrap';
 import DynamicChart from './DynamicChart';
 import './css/app.css';
@@ -24,7 +24,7 @@ class App extends Component {
           </Grid>
         </Jumbotron>
 
-        <StaticCharts />
+        <RrdCharts />
 
         <hr/>
 
