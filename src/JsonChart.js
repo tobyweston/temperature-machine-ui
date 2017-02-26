@@ -6,7 +6,7 @@ import { Glyphicon } from 'react-bootstrap';
 import './css/dynamicchart.css';
 
 
-class DynamicChart extends React.Component {
+class JsonChart extends React.Component {
 
   constructor(props) {
     super(props);
@@ -100,4 +100,4 @@ class DynamicChart extends React.Component {
   }
 }
 
-export default DynamicChart;
+export default JsonChart;

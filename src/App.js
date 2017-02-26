@@ -3,7 +3,7 @@ import Temperatures from './Temperatures';
 import Band from './Band';
 import RrdCharts from './RrdCharts';
 import { Jumbotron, Grid, Col } from 'react-bootstrap';
-import DynamicChart from './DynamicChart';
+import JsonChart from './JsonChart';
 import './css/app.css';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
               <Temperatures />
             </Col>
             <Col md={9}>
-              <DynamicChart/>
+              <JsonChart />
             </Col>
           </Grid>
         </Jumbotron>
