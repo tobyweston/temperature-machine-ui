@@ -62,9 +62,9 @@ class Temperatures extends React.Component {
   fetchCurrentTemperatures() {
     let url = null;
     if (this.state.showAveragedSensors === true)
-      url = 'http://localhost:11900/temperatures/average';
+      url = '/temperatures/average';
     else
-      url = 'http://localhost:11900/temperatures';
+      url = '/temperatures';
 
     axios.get(url)
         .then(response => {
