@@ -21,7 +21,7 @@ class Temperatures extends React.Component {
 
     this.timerId = setInterval(() => {
       this.fetchCurrentTemperatures();
-    }, 1000)
+    }, 30000)
   }
 
   componentWillUnmount() {
