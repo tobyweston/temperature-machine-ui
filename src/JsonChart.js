@@ -47,6 +47,7 @@ class JsonChart extends React.Component {
         }]
       },
       tooltips: {
+        mode: 'index',
         callbacks: {
           title: function(tooltipItem, data) {
             return moment(tooltipItem[0].xLabel).format("ddd, H:mm");
