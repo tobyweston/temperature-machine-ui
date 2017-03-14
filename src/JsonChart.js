@@ -3,6 +3,7 @@ import axios from "axios";
 import {Line} from "react-chartjs-2";
 import Spinner from './Spinner';
 import { Glyphicon } from 'react-bootstrap';
+import moment from 'moment';
 import './css/dynamicchart.css';
 
 
@@ -44,6 +45,16 @@ class JsonChart extends React.Component {
             }
           }
         }]
+      },
+      tooltips: {
+        callbacks: {
+          title: function(tooltipItem, data) {
+            return moment(tooltipItem[0].xLabel).format("ddd, H:mm");
+          },
+          label: function(tooltipItem, data) {
+            return ' ' + data.datasets[tooltipItem.datasetIndex].label + ' ' + tooltipItem.yLabel + ' °C';
+          }
+        }
       }
     };
 
