@@ -5,6 +5,7 @@
   "devDependencies": {
     "react-scripts": "0.9.0"
   },
+  "proxy": "http://localhost:11900",
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
