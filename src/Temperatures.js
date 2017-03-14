@@ -17,7 +17,7 @@ class Temperatures extends React.Component {
   }
 
   componentDidMount() {
-    // this.fetchCurrentTemperatures(); // initialise?
+    this.fetchCurrentTemperatures();
 
     this.timerId = setInterval(() => {
       this.fetchCurrentTemperatures();
