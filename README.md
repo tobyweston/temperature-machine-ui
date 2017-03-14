@@ -19,3 +19,11 @@ To have the UI show meaningful data, run the `temperature-machine` app up. It wi
 If you don't you'll probably see `Error: Request failed with status code 500` and no images or data.
 
 You can hack the js and css and the development server will compile everything and the browser will auto update with your changes.
+
+## Build
+
+Run the following.
+
+    npm run build
+    
+Then copy the resulting deployment (resources) folder on the `temperature-machine`.
