@@ -53,7 +53,7 @@ class JsonChart extends React.Component {
             return moment(tooltipItem[0].xLabel).format("ddd, H:mm");
           },
           label: function(tooltipItem, data) {
-            return ' ' + data.datasets[tooltipItem.datasetIndex].label + ' ' + tooltipItem.yLabel + ' °C';
+            return ' ' + data.datasets[tooltipItem.datasetIndex].label + ' ' + Math.round(tooltipItem.yLabel * 100) / 100 + ' °C';
           }
         }
       }
