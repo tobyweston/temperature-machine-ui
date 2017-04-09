@@ -41,7 +41,7 @@ class JsonChart extends React.Component {
           type: 'time',
           time: {
             displayFormats: {
-              hour: 'hh:mm'
+              hour: 'H:mm'
             }
           }
         }]
