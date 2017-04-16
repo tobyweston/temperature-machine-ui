@@ -71,7 +71,11 @@ class Temperatures extends React.Component {
           this.setState({
             loading: false,
             error: null,
-            measurements: response.data.measurements
+            measurements: response.data.measurements.sort(function(a, b) {
+              if (a.host < b.host) return -1;
+              if (a.host > b.host) return 1;
+              return 0;
+            })
           });
         })
         .catch(error => {
