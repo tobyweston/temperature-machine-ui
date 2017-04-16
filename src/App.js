@@ -29,7 +29,7 @@ class App extends Component {
         <hr/>
 
         <footer>
-          <p>&copy; 2016-2017 <a href="https://github.com/tobyweston/temperature-machine">toby weston</a></p>
+          <p>&copy; 2016-2017 toby weston, <a href="http://temperature-machine.com">temperature-machine.com</a></p>
         </footer>
 
       </div>
