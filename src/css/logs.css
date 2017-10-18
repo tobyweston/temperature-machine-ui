@@ -1,0 +1,12 @@
+h1 {
+    margin-left: 60px !important;
+}
+
+.log {
+    background-color: #eee;
+}
+
+.log-data {
+    margin-left: 60px;
+    margin-right: 60px;
+}
