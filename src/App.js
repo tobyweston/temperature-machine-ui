@@ -29,7 +29,8 @@ class App extends Component {
         <hr/>
 
         <footer>
-          <p>&copy; 2016-2017 toby weston, <a href="http://temperature-machine.com">temperature-machine.com</a></p>
+            <span className="copyright">&copy; 2016-2017 toby weston, <a href="http://temperature-machine.com">temperature-machine.com</a></span>
+            <span className="logs-link"><a href="temperature-machine.log">View the logs</a></span>
         </footer>
 
       </div>

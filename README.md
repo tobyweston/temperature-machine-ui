@@ -16,7 +16,7 @@ The development server will run up and serve the app. Goto [http://localhost:300
 
 To have the UI show meaningful data, run the `temperature-machine` app up. It will start on `localhost:11900` and the `proxy` setting in `package.json` will take care of the rest. See the proxy section of [REACT.md](https://github.com/tobyweston/temperature-machine-ui/blob/master/REACT.md#proxying-api-requests-in-development).
 
-If you don't you'll probably see `Error: Request failed with status code 500` and no images or data.
+If you don't, you'll probably see `Error: Request failed with status code 500` and no images or data.
 
 You can hack the js and css and the development server will compile everything and the browser will auto update with your changes.
 
