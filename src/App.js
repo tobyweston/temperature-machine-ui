@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import Temperatures from './Temperatures';
+import Home from './Home';
 import Band from './Band';
-import RrdCharts from './RrdCharts';
 import Logs from './Logs';
-import {Jumbotron, Grid, Col} from 'react-bootstrap';
-import JsonChart from './JsonChart';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import './css/app.css';
 
 class App extends Component {
@@ -15,23 +12,8 @@ class App extends Component {
           <div>
             <Band/>
 
-            <Route exact="true" path="/" render={() => (
-                <div>
-                  <Jumbotron>
-                    <Grid>
-                      <Col md={3}>
-                        <Temperatures/>
-                      </Col>
-                      <Col md={9}>
-                        <JsonChart/>
-                      </Col>
-                    </Grid>
-                  </Jumbotron>
-
-                  <RrdCharts/>
-                </div>
-            )}/>
-
+            <Route exact="true" path="/" component={Home}/>
+            
             <Route path="/logs" component={Logs}/>
 
             <hr/>
