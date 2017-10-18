@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './css/app.css';
 
 class Logs extends Component {
 

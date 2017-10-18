@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './css/app.css';
 import Temperatures from './Temperatures';
 import RrdCharts from './RrdCharts';
 import {Col, Grid, Jumbotron} from 'react-bootstrap';
