@@ -3,11 +3,7 @@ import ImageLoader from 'react-imageloader';
 import Spinner from './Spinner';
 
 class RrdChart extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
+  
   preloader() {
     return <Spinner/>
   }

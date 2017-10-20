@@ -6,7 +6,33 @@ h1 {
     background-color: #eee;
 }
 
-.log-data {
+/* how do I style .spinner, just on this page (and not affect all pages?) */
+
+.log-data, .log-error {
     margin-left: 60px;
     margin-right: 60px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0 0 0 60px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: darkgray;
+    text-decoration: none;
 }

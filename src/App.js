@@ -11,9 +11,9 @@ class App extends Component {
           <div>
             <Band/>
 
-            <Route exact={true} path="/" component={Home}/>
+            <Route exact={true} path="/" component={ Home } />
             
-            <Route path="/logs" component={Logs}/>
+            <Route path="/logs" component={ Logs } />
             
           </div>
         </Router>

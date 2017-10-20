@@ -24,7 +24,7 @@ class Home extends Component {
 
           <RrdCharts/>
 
-          <Footer link={<Link to="logs">View the logs</Link>}/>
+          <Footer link={<Link to='logs'>View the logs</Link>}/>
         </div>
     );
   }
