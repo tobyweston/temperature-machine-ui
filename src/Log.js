@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Spinner from './Spinner';
 import Refresh from './Refresh';
 import axios from "axios";
+import moment from 'moment';
 import './css/logs.css';
 
 class Log extends Component {
@@ -45,11 +46,14 @@ class Log extends Component {
       <Refresh refresh={ (event) => this.refresh(event) }/>
       { 
         this.state.log.map((value, index) => {
+          let time = moment(value.time.instant);
           return <div className='log-row'>
-            <span className='time'>{ value.time.instant }</span>
+            <span className='time'>{ time.format("ddd DD-MMM-YYYY") }</span>
+            <span className='hours'>{ time.format("HH:mm:ss") }</span>
+            <span className='millis'>{ time.format(".SSS") }</span>
             <span className='thread'>{ value.thread }</span>
             <span className={ 'level ' + value.level.toLowerCase() }>{ value.level }</span>
-            <span className={ 'message ' }>{ value.message }</span>
+            <span className='message'>{ value.message }</span>
           </div>
         })
       }

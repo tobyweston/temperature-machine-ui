@@ -48,11 +48,11 @@ pre > .link {
     float: right;
 }
 
-.log-row > .time, .thread, .level {
+.log-row > .time, .thread, .level, .millis {
     padding-right: 6px;
 }
 
-.log-row > .time {
+.log-row > .time, .millis {
     color: gray;
 }
 
