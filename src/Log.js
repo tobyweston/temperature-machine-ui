@@ -43,7 +43,16 @@ class Log extends Component {
   renderLog() {
     return <pre className="log-data">
       <Refresh refresh={ (event) => this.refresh(event) }/>
-      <span>{ this.state.log }</span>
+      { 
+        this.state.log.map((value, index) => {
+          return <div className='log-row'>
+            <span className='time'>{ value.time.instant }</span>
+            <span className='thread'>{ value.thread }</span>
+            <span className={ 'level ' + value.level.toLowerCase() }>{ value.level }</span>
+            <span className={ 'message ' }>{ value.message }</span>
+          </div>
+        })
+      }
     </pre>;
   }
 
@@ -52,7 +61,7 @@ class Log extends Component {
   }
   
   fetchLog() {
-    let url = 'http://' + this.props.host + ':11900/temperature-machine.log';
+    let url = 'http://' + this.props.host + ':11900/log';
     axios.get(url)
         .then(response => {
           this.setState({

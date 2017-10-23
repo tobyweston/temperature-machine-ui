@@ -47,3 +47,23 @@ li a:hover {
 pre > .link {
     float: right;
 }
+
+.log-row > .time, .thread, .level {
+    padding-right: 6px;
+}
+
+.log-row > .time {
+    color: gray;
+}
+
+.log-row > .thread {
+    color: darkgray;
+}
+
+.log-row > .info {
+    color: green;
+}
+
+.log-row > .error {
+    color: red;
+}
