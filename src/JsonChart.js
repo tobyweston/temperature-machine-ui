@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import {Line} from "react-chartjs-2";
 import Spinner from './Spinner';
-import { Glyphicon } from 'react-bootstrap';
+import Refresh from './Refresh';
 import moment from 'moment';
 import './css/dynamicchart.css';
 
@@ -69,7 +69,7 @@ class JsonChart extends React.Component {
 
     return <div>
       <div className="chart-heading">
-        <p>Last 24 Hours</p><a className="link" href="" onClick={(event) => { this.refreshChart(event) }}><Glyphicon glyph="refresh"/></a>
+        <p>Last 24 Hours</p><Refresh refresh={ (event) => this.refreshChart(event) }/>
       </div>
       <div className="chart-area">
         { element }

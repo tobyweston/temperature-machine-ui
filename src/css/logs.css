@@ -43,3 +43,7 @@ li a:hover {
     background-color: darkgray;
     text-decoration: none;
 }
+
+pre > .link {
+    float: right;
+}

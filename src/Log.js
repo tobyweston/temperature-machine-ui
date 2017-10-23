@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Spinner from './Spinner';
+import Refresh from './Refresh';
 import axios from "axios";
 import './css/logs.css';
 
@@ -20,9 +21,9 @@ class Log extends Component {
     if (this.state.loading === true)
       element = <Spinner/>;
     else if (this.state.error)
-      element = <pre className="log-error">{ this.state.error.toString() }</pre>;
+      element = this.renderError();
     else
-      element = <pre className="log-data">{this.state.log}</pre>;
+      element = this.renderLog();
 
 
     return (
@@ -30,6 +31,20 @@ class Log extends Component {
           { element }
         </div>
     );
+  }
+
+  renderError() {
+    return <pre className="log-error">
+      <Refresh refresh={ (event) => this.refresh(event) }/>
+      <span>{ this.state.error.toString() }</span>
+    </pre>;
+  }
+
+  renderLog() {
+    return <pre className="log-data">
+      <Refresh refresh={ (event) => this.refresh(event) }/>
+      <span>{ this.state.log }</span>
+    </pre>;
   }
 
   componentDidMount() {
@@ -52,6 +67,11 @@ class Log extends Component {
             error: error
           })
         });
+  }
+
+  refresh(event) {
+    event.preventDefault();
+    this.fetchLog();
   }
 }
 
