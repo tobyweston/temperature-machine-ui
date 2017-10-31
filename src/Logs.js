@@ -49,7 +49,7 @@ class Logs extends Component {
         this.state.connections.map((value, index) => {
           let path = '/logs/' + value.host.name.toLowerCase();
           let link = value.host.name[0].toUpperCase() + value.host.name.substr(1);
-          return <li key={index}><NavLink activeClassName='active' to={ path }>{ link }</NavLink></li>;
+          return <li key={index}><NavLink title={ value.ip.value } activeClassName='active' to={ path }>{ link }</NavLink></li>;
         })
       }
     </ul>;
