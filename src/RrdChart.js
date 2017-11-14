@@ -17,11 +17,9 @@ class RrdChart extends React.Component {
 
     return <div>
       <p className="lead">{this.props.label}</p>
-      <a href={this.props.file}>
         <ImageLoader src={this.props.file} imgProps={imagePros} wrapper={React.DOM.div} preloader={this.preloader}>
           Image unavailable
         </ImageLoader>
-      </a>
     </div>
   }
 

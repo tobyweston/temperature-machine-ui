@@ -15,6 +15,7 @@
     "react-bootstrap": "^0.30.7",
     "react-chartjs-2": "^2.0.0",
     "react-dom": "^15.4.2",
+    "react-image-lightbox": "^4.3.0",
     "react-imageloader": "^2.1.0",
     "react-router-dom": "^4.2.2"
   },
