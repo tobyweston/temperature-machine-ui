@@ -8,7 +8,15 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 
 ## Development
 
-Start the UI with 
+Install the packages with:
+
+    npm install
+    
+Optionally update the package with the following (check the `package.json` afterwards):
+
+    npm update
+
+Start the UI with:
 
     npm start
     
