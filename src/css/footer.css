@@ -13,3 +13,7 @@ footer .link {
     padding-bottom: 10px;
     margin-right: 60px;
 }
+
+footer a:hover {
+    text-decoration: none;
+}
