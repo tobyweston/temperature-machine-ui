@@ -5,12 +5,14 @@ import Footer from './Footer';
 import {Col, Grid, Jumbotron} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import JsonChart from './JsonChart';
+import SidebarMenu from './SidebarMenu';
 
 class Home extends Component {
 
   render() {
     return (
         <div>
+          <SidebarMenu/>
           <Jumbotron>
             <Grid>
               <Col md={3}>
