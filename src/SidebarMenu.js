@@ -9,8 +9,9 @@ class SidebarMenu extends Component {
   render() {
     return (
       <Menu>
-        <Link to='logs' className='menu-item'><i className="fa fa-file-text-o"/><span>Logs</span></Link>
-        { this.renderHref('http://temperature-machine.com', '_blank', <i className='fa fa-thermometer-half' aria-hidden='true'/>, 'Documentation')}
+        { this.renderHref('/', '', <i className='fa fa-thermometer-half' aria-hidden='true'/>, 'Temperatures')}
+        <Link to='logs' className='menu-item'><i className="fa fa-archive"/><span>Logs</span></Link>
+        { this.renderHref('http://temperature-machine.com', '_blank', <i className='fa fa-file-text-o' aria-hidden='true'/>, 'Documentation')}
         { this.renderHref('http://github.com/tobyweston/temperature-machine', '_blank', <i className='fa fa-github-alt' aria-hidden='true'/>, 'Github')}
       </Menu>
     );
