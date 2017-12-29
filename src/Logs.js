@@ -75,7 +75,6 @@ class Logs extends Component {
   fetchConnections() {
     axios.get('/connections')
         .then(response => {
-          console.log(response.data);
           this.setState({
             loading: false,
             error: null,
