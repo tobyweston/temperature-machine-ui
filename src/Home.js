@@ -9,14 +9,22 @@ import SidebarMenu from './SidebarMenu';
 
 class Home extends Component {
 
+  constructor(props) {
+    super(props);
+    this.onToggleShowAveragedSensors = this.onToggleShowAveragedSensors.bind(this); // voodoo
+    this.state = {
+      showAveragedSensors: true
+    };
+  }
+    
   render() {
     return (
         <div>
-          <SidebarMenu/>
+          <SidebarMenu showAveragedSensors={ this.state.showAveragedSensors } onToggleShowAveragedSensors={ this.onToggleShowAveragedSensors }/>
           <Jumbotron>
             <Grid>
               <Col md={3}>
-                <Temperatures/>
+                <Temperatures showAveragedSensors={ this.state.showAveragedSensors }/>
               </Col>
               <Col md={9}>
                 <JsonChart/>
@@ -29,6 +37,12 @@ class Home extends Component {
           <Footer link={<Link to='logs'>View the logs</Link>}/>
         </div>
     );
+  }
+  
+  onToggleShowAveragedSensors(value) {
+    this.setState({
+      showAveragedSensors: value
+    })
   }
 }
 

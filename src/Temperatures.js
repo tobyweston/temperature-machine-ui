@@ -9,7 +9,6 @@ class Temperatures extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAveragedSensors: true,
       loading: true,
       error: null,
       measurements: []
@@ -39,7 +38,7 @@ class Temperatures extends React.Component {
 
     return <div>
       <div className="temperatures-heading">
-        <p>Current Temperature</p><a className="link" href="" onClick={(event) => { this.toggleAveraging(event) }}>{this.toggleString()}</a>
+        <p>Current Temperature</p>
       </div>
       <div className="temperatures-area">
         { element }
@@ -61,7 +60,7 @@ class Temperatures extends React.Component {
 
   fetchCurrentTemperatures() {
     let url = null;
-    if (this.state.showAveragedSensors === true)
+    if (this.props.showAveragedSensors === true)
       url = '/temperatures/average';
     else
       url = '/temperatures';
@@ -85,20 +84,7 @@ class Temperatures extends React.Component {
           })
         });
   }
-
-  toggleString() {
-    return this.state.showAveragedSensors ? 'all sensors' : 'average';
-  }
-
-  toggleAveraging(event) {
-    event.preventDefault();
-    this.setState((previous, props) => ({
-      showAveragedSensors: !previous.showAveragedSensors
-    }), () => {
-      this.fetchCurrentTemperatures(); // a callback run after setState is applied
-    });
-  }
-
+  
 }
 
 export default Temperatures;

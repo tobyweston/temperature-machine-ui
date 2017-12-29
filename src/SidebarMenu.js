@@ -11,7 +11,7 @@ class SidebarMenu extends Component {
     return (
       <Menu>
         { this.renderHref('/', '', <i className='fa fa-thermometer-half' aria-hidden='true'/>, 'Temperatures')}
-        <ToggleShowAveragedSensors/>
+        <ToggleShowAveragedSensors showAveragedSensors={ this.props.showAveragedSensors } onToggleShowAveragedSensors={ this.props.onToggleShowAveragedSensors } />
         <Link to='logs'><i className="fa fa-archive"/><span>Logs</span></Link>
         { this.renderHref('http://temperature-machine.com', '_blank', <i className='fa fa-file-text-o' aria-hidden='true'/>, 'Documentation')}
         { this.renderHref('http://github.com/tobyweston/temperature-machine', '_blank', <i className='fa fa-github-alt' aria-hidden='true'/>, 'Github')}
