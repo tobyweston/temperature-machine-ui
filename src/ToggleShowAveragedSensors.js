@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './css/select-average.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-class SelectAveragedTemperatures extends Component {
+class ShowAveragedSensors extends Component {
 
   constructor(props) {
     super(props);
@@ -39,4 +39,4 @@ class SelectAveragedTemperatures extends Component {
   }
 }
 
-export default SelectAveragedTemperatures;
+export default ShowAveragedSensors;
