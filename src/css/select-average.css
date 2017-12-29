@@ -1,0 +1,25 @@
+
+.bm-item-list .selection a span {
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.bm-item-list .selection a {
+    text-decoration: none;
+}
+
+.bm-item-list .selection a:hover {
+    text-decoration: none;
+}
+
+.selection .bm-item-selection {
+    color: #b8b7ad;
+    padding: 0 0 0 55px;
+    display: inline-block;
+}
+
+.selection .bm-item-selection .fa {
+    width: 25px;
+    text-align: left;
+}
