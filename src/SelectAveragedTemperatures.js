@@ -7,16 +7,15 @@ class SelectAveragedTemperatures extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      averaged: true,
-      allSensors: false
+      showAveragedSensors: true
     };
   }
   
   render() {
     return (
       <div className='selection'>
-        <a className='bm-item-selection' href='' onClick={ event => this.averaged(event) }><i className={ this.isSelected(this.state.averaged) } aria-hidden='true'/><span>Averaged</span></a>
-        <a className='bm-item-selection' href='' onClick={ event => this.allSensors(event) }><i className={ this.isSelected(this.state.allSensors) } aria-hidden='true'/><span>All sensors</span></a>
+        <a className='bm-item-selection' href='' onClick={ event => this.averaged(event) }><i className={ this.isSelected(this.state.showAveragedSensors) } aria-hidden='true'/><span>Averaged</span></a>
+        <a className='bm-item-selection' href='' onClick={ event => this.allSensors(event) }><i className={ this.isSelected(!this.state.showAveragedSensors) } aria-hidden='true'/><span>All sensors</span></a>
       </div>
     );
   }
@@ -28,16 +27,14 @@ class SelectAveragedTemperatures extends Component {
   averaged(event) {
     event.preventDefault();
     this.setState(prevState => ({
-      averaged: true,
-      allSensors: false
+      showAveragedSensors: true
     }));
   }
 
   allSensors(event) {
     event.preventDefault();
     this.setState(prevState => ({
-      averaged: false,
-      allSensors: true
+      showAveragedSensors: false
     }));
   }
 }
