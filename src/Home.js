@@ -17,15 +17,17 @@ class Home extends Component {
       forceRefresh: false
     };
   }
-    
+
   render() {
     return (
         <div>
-          <SidebarMenu showAveragedSensors={ this.state.showAveragedSensors } onToggleShowAveragedSensors={ this.onToggleShowAveragedSensors }/>
+          <SidebarMenu showAveragedSensors={this.state.showAveragedSensors}
+                       onToggleShowAveragedSensors={this.onToggleShowAveragedSensors}/>
           <Jumbotron>
             <Grid>
               <Col md={3}>
-                <Temperatures showAveragedSensors={ this.state.showAveragedSensors } forceRefresh={ this.state.forceRefresh } />
+                <Temperatures showAveragedSensors={this.state.showAveragedSensors}
+                              forceRefresh={this.state.forceRefresh}/>
               </Col>
               <Col md={9}>
                 <JsonChart/>
@@ -39,17 +41,19 @@ class Home extends Component {
         </div>
     );
   }
-  
+
   onToggleShowAveragedSensors(newValue) {
-    this.setState({
-      showAveragedSensors: newValue,
-      forceRefresh: true
-    }, () => {
-      // a callback run after setState is applied (attempt to toggle and force a refresh without spinning)
-      this.setState({ 
-        forceRefresh: false 
-      })  
-    })
+    if (this.state.showAveragedSensors !== newValue) {
+      this.setState({
+        showAveragedSensors: newValue,
+        forceRefresh: true
+      }, () => {
+        // a callback run after setState is applied (attempt to toggle and force a refresh without spinning)
+        this.setState({
+          forceRefresh: false
+        })
+      })
+    }
   }
 }
 
