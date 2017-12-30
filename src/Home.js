@@ -39,9 +39,9 @@ class Home extends Component {
     );
   }
   
-  onToggleShowAveragedSensors(value) {
+  onToggleShowAveragedSensors(newValue) {
     this.setState({
-      showAveragedSensors: value
+      showAveragedSensors: newValue
     })
   }
 }

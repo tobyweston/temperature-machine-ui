@@ -9,6 +9,7 @@ class Temperatures extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      lastValueForShowAveragedSensors: true,
       loading: true,
       error: null,
       measurements: []
@@ -28,6 +29,19 @@ class Temperatures extends React.Component {
   }
 
   render() {
+    this.forceRefresh(); // bad and naughty
+
+    return <div>
+      <div className="temperatures-heading">
+        <p>Current Temperature</p>
+      </div>
+      <div className="temperatures-area">
+        { this.renderMainTemperatureArea() }
+      </div>
+    </div>
+  }
+
+  renderMainTemperatureArea() {
     let element = null;
     if (this.state.loading === true)
       element = <Spinner/>;
@@ -35,15 +49,17 @@ class Temperatures extends React.Component {
       element = this.renderError(this.state.error);
     else
       element = this.renderTemperatures(this.state.measurements);
+    return element;
+  }
 
-    return <div>
-      <div className="temperatures-heading">
-        <p>Current Temperature</p>
-      </div>
-      <div className="temperatures-area">
-        { element }
-      </div>
-    </div>
+  forceRefresh() {
+    if (this.state.lastValueForShowAveragedSensors !== this.props.showAveragedSensors) {
+      this.fetchCurrentTemperatures();
+      this.setState({
+        lastValueForShowAveragedSensors: this.props.showAveragedSensors
+      });
+    }
+
   }
 
   renderError(error) {
@@ -59,11 +75,7 @@ class Temperatures extends React.Component {
   }
 
   fetchCurrentTemperatures() {
-    let url = null;
-    if (this.props.showAveragedSensors === true)
-      url = '/temperatures/average';
-    else
-      url = '/temperatures';
+    let url = this.getUrl(this.props.showAveragedSensors);
 
     axios.get(url)
         .then(response => {
@@ -84,7 +96,15 @@ class Temperatures extends React.Component {
           })
         });
   }
-  
+
+  getUrl(showAveragedSensors) {
+    let url = null;
+    if (showAveragedSensors === true)
+      url = '/temperatures/average';
+    else
+      url = '/temperatures';
+    return url;
+  }
 }
 
 export default Temperatures;
