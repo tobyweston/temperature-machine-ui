@@ -13,7 +13,8 @@ class Home extends Component {
     super(props);
     this.onToggleShowAveragedSensors = this.onToggleShowAveragedSensors.bind(this); // voodoo
     this.state = {
-      showAveragedSensors: true
+      showAveragedSensors: true,
+      forceRefresh: false
     };
   }
     
@@ -24,7 +25,7 @@ class Home extends Component {
           <Jumbotron>
             <Grid>
               <Col md={3}>
-                <Temperatures showAveragedSensors={ this.state.showAveragedSensors }/>
+                <Temperatures showAveragedSensors={ this.state.showAveragedSensors } forceRefresh={ this.state.forceRefresh } />
               </Col>
               <Col md={9}>
                 <JsonChart/>
@@ -41,7 +42,13 @@ class Home extends Component {
   
   onToggleShowAveragedSensors(newValue) {
     this.setState({
-      showAveragedSensors: newValue
+      showAveragedSensors: newValue,
+      forceRefresh: true
+    }, () => {
+      // a callback run after setState is applied (attempt to toggle and force a refresh without spinning)
+      this.setState({ 
+        forceRefresh: false 
+      })  
     })
   }
 }

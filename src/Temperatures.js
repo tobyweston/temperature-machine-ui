@@ -9,7 +9,6 @@ class Temperatures extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lastValueForShowAveragedSensors: true,
       loading: true,
       error: null,
       measurements: []
@@ -29,8 +28,8 @@ class Temperatures extends React.Component {
   }
 
   render() {
-    this.forceRefresh(); // bad and naughty
-
+    this.possiblyForceRefresh();
+    
     return <div>
       <div className="temperatures-heading">
         <p>Current Temperature</p>
@@ -52,14 +51,10 @@ class Temperatures extends React.Component {
     return element;
   }
 
-  forceRefresh() {
-    if (this.state.lastValueForShowAveragedSensors !== this.props.showAveragedSensors) {
+  possiblyForceRefresh() {
+    if (this.props.forceRefresh) {
       this.fetchCurrentTemperatures();
-      this.setState({
-        lastValueForShowAveragedSensors: this.props.showAveragedSensors
-      });
     }
-
   }
 
   renderError(error) {
