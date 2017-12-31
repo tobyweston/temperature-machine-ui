@@ -1,27 +1,27 @@
-.logs-main h1 {
+.logs-component h1 {
     margin-left: 60px;
 }
 
-.logs-main .log {
+.logs-component .log {
     padding-bottom: 5px;
     background-color: #eee;
 }
 
-.logs-main .log .spinner {
+.logs-component .log .spinner {
     margin-left: 60px;
     padding-bottom: 15px;
 }
 
-.logs-main .log pre > .link {
+.logs-component .log pre > .link {
     float: right;
 }
 
-.logs-main .log-data, .log-error {
+.logs-component .log-data, .log-error {
     margin-left: 60px;
     margin-right: 60px;
 }
 
-.logs-main ul {
+.logs-component ul {
     list-style-type: none;
     margin: 0 !important;
     padding: 0 0 0 60px;
@@ -29,23 +29,23 @@
     background-color: #eee;
 }
 
-.logs-main ul li {
+.logs-component ul li {
     float: left;
 }
 
-.logs-main ul li .active {
+.logs-component ul li .active {
     /*background-color: #eee;*/
     background-color: #f5f5f5;
 }
 
-.logs-main ul li a {
+.logs-component ul li a {
     display: block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none !important;
 }
 
-.logs-main ul li a:hover {
+.logs-component ul li a:hover {
     background-color: darkgray;
     text-decoration: none;
 }

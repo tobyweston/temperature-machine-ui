@@ -24,7 +24,7 @@ class Logs extends Component {
   }
 
   renderLayout(element) {
-    return <div className='logs-main'>
+    return <div className='logs-component'>
       <SidebarMenu/>
       {element}
     </div>
