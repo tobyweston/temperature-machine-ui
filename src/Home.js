@@ -20,14 +20,12 @@ class Home extends Component {
 
   render() {
     return (
-        <div>
-          <SidebarMenu showAveragedSensors={this.state.showAveragedSensors}
-                       onToggleShowAveragedSensors={this.onToggleShowAveragedSensors}/>
+        <div className='home main'>
+          <SidebarMenu showAveragedSensors={this.state.showAveragedSensors} onToggleShowAveragedSensors={this.onToggleShowAveragedSensors}/>
           <Jumbotron>
             <Grid>
               <Col md={3}>
-                <Temperatures showAveragedSensors={this.state.showAveragedSensors}
-                              forceRefresh={this.state.forceRefresh}/>
+                <Temperatures showAveragedSensors={this.state.showAveragedSensors} forceRefresh={this.state.forceRefresh}/>
               </Col>
               <Col md={9}>
                 <JsonChart/>

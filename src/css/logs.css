@@ -1,5 +1,7 @@
 .logs-component h1 {
     margin-left: 60px;
+    /*font-size: 21px;*/
+    font-weight: 200;
 }
 
 .logs-component .log {
@@ -23,7 +25,7 @@
 
 .logs-component ul {
     list-style-type: none;
-    margin: 0 !important;
+    margin: 0;
     padding: 0 0 0 60px;
     overflow: hidden;
     background-color: #eee;
@@ -42,7 +44,7 @@
     display: block;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 .logs-component ul li a:hover {

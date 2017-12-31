@@ -1,0 +1,19 @@
+.connections-component h1 {
+    margin-left: 60px;
+    /*font-size: 21px;*/
+    font-weight: 200;
+
+}
+
+.connections-component .main {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.connections-component table {
+    padding-left: 10px;
+}
+
+.connections-component td {
+    padding: 0 30px 10px 0;
+}

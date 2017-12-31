@@ -4,6 +4,8 @@ import Footer from './Footer';
 import Spinner from './Spinner';
 import {Link, NavLink, Route} from 'react-router-dom';
 import axios from "axios";
+import {Col, Row} from 'react-bootstrap';
+
 
 import './css/logs.css';
 import SidebarMenu from "./SidebarMenu";
@@ -43,8 +45,12 @@ class Logs extends Component {
 
   renderLogs() {
     return <div>
-      <h1>Logs</h1>
-
+      <Row>
+        <Col md={12}>
+          <h1>Logs</h1>
+        </Col>
+      </Row>
+      
       { this.renderLinks() }
       { this.renderRoutes() }
       
@@ -82,7 +88,7 @@ class Logs extends Component {
   }
 
   fetchConnections() {
-    axios.get('/connections')
+    axios.get('/connections/active/within/5/mins')
         .then(response => {
           this.setState({
             loading: false,
