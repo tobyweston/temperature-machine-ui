@@ -20,7 +20,7 @@ class Logs extends Component {
   }
 
   render() {
-    return this.renderLayout(this.loadingErrorOrContent());
+    return this.renderLayout(this.renderLoadingErrorOrContent());
   }
 
   renderLayout(element) {
@@ -30,7 +30,7 @@ class Logs extends Component {
     </div>
   }
   
-  loadingErrorOrContent() {
+  renderLoadingErrorOrContent() {
     let element = null;
     if (this.state.loading === true)
       element = <Spinner/>;
@@ -42,7 +42,7 @@ class Logs extends Component {
   }
 
   renderLogs() {
-    return <div className='logs-component'>
+    return <div>
       <h1>Logs</h1>
 
       { this.renderLinks() }
