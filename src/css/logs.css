@@ -1,22 +1,22 @@
-h1 {
-    margin-left: 60px !important;
+.logs-main h1 {
+    margin-left: 60px;
 }
 
-.log {
-    /*padding-top: 10px;*/
+.logs-main .log {
     padding-bottom: 5px;
     background-color: #eee;
 }
 
-.log .spinner {
+.logs-main .log .spinner {
     margin-left: 60px;
+    padding-bottom: 15px;
 }
 
-.log pre > .link {
+.logs-main .log pre > .link {
     float: right;
 }
 
-.log-data, .log-error {
+.logs-main .log-data, .log-error {
     margin-left: 60px;
     margin-right: 60px;
 }

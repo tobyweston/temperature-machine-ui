@@ -5,8 +5,8 @@ import Spinner from './Spinner';
 import {Link, NavLink, Route} from 'react-router-dom';
 import axios from "axios";
 
-
 import './css/logs.css';
+import SidebarMenu from "./SidebarMenu";
 
 class Logs extends Component {
 
@@ -20,18 +20,27 @@ class Logs extends Component {
   }
 
   render() {
+    return this.renderLayout(this.loadingErrorOrContent());
+  }
 
+  renderLayout(element) {
+    return <div className='logs-main'>
+      <SidebarMenu/>
+      {element}
+    </div>
+  }
+  
+  loadingErrorOrContent() {
     let element = null;
     if (this.state.loading === true)
       element = <Spinner/>;
     else if (this.state.error)
-      element = <pre className="error">{ this.state.error.toString() }</pre>;
+      element = <pre className="error">{this.state.error.toString()}</pre>;
     else
       element = this.renderLogs();
-
-    return (element);
+    return element;
   }
-  
+
   renderLogs() {
     return <div className='logs-component'>
       <h1>Logs</h1>
