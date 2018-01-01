@@ -7,8 +7,7 @@ class Footer extends React.Component {
     return (
         <footer>
           <hr/>
-          <span className="copyright">&copy; 2016-2017 toby weston, <a href="http://temperature-machine.com" target="_blank">temperature-machine.com</a></span>
-          <span className="link">{this.props.link}</span>
+          <span className="copyright">&copy; 2016-2018 toby weston</span>
         </footer>
     )
   }
