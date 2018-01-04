@@ -14,9 +14,9 @@ class SidebarMenu extends Component {
         <ToggleShowAveragedSensors showAveragedSensors={ this.props.showAveragedSensors } onToggleShowAveragedSensors={ this.props.onToggleShowAveragedSensors } />
         <Link to='logs'><i className="fa fa-archive"/><span>Logs</span></Link>
         <Link to='connections'><i className="fa fa-plug"/><span>Live Connections</span></Link>
-        { this.renderHref('http://temperature-machine.com', '_blank', <i className='fa fa-file-text-o' aria-hidden='true'/>, 'Documentation')}
+        { this.renderHref('http://temperature-machine.com/docs', '_blank', <i className='fa fa-file-text-o' aria-hidden='true'/>, 'Documentation')}
         { this.renderHref('http://github.com/tobyweston/temperature-machine', '_blank', <i className='fa fa-github-alt' aria-hidden='true'/>, 'Github')}
-        { this.renderHref('http://' + location.hostname + ':11900/temperatures/csv', '', <i className='fa fa-cloud-download' aria-hidden='true'/>, 'Export CSV')}
+        { this.renderHref('http://' + location.hostname + ':11900/temperatures.csv', '', <i className='fa fa-cloud-download' aria-hidden='true'/>, 'Export CSV')}
       </Menu>
     );
   }
