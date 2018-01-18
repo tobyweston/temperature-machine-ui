@@ -34,17 +34,17 @@ class RrdCharts extends React.Component {
           <Grid>
             <Row>
               <Col md={4}>
-                <div className='image-link' onClick={this.setPhoto(0)}>
+                <div className='image-link' onClick={ this.setPhoto(0) }>
                   <RrdChart label="24 Hours" file={ images[0] }/>
                 </div>
               </Col>
               <Col md={4}>
-                <div className='image-link' onClick={this.setPhoto(1)}>
+                <div className='image-link' onClick={ this.setPhoto(1) }>
                   <RrdChart label="7 Days" file={ images[1] } />
                 </div>
               </Col>
               <Col md={4}>
-                <div className='image-link' onClick={this.setPhoto(2)}>
+                <div className='image-link' onClick={ this.setPhoto(2) }>
                   <RrdChart label="1 Month" file={ images[2] } />
                 </div>
               </Col>
@@ -53,13 +53,13 @@ class RrdCharts extends React.Component {
 
           {this.state.isOpen &&
             <Lightbox
-                mainSrc={images[this.state.photoIndex]}
-                nextSrc={images[(this.state.photoIndex + 1) % images.length]}
-                prevSrc={images[(this.state.photoIndex + images.length - 1) % images.length]}
-                imageTitle={this.state.photoTitle}
-                onCloseRequest={this.close()}
-                onMovePrevRequest={this.prevImage()}
-                onMoveNextRequest={this.nextImage()}
+                mainSrc={ images[this.state.photoIndex] }
+                nextSrc={ images[this.incrementedIndex()] }
+                prevSrc={ images[this.decrementedIndex()] }
+                imageTitle={ this.state.photoTitle }
+                onCloseRequest={ this.close() }
+                onMovePrevRequest={ this.prevImage() }
+                onMoveNextRequest={ this.nextImage() }
             />
           }
 
@@ -72,25 +72,37 @@ class RrdCharts extends React.Component {
       isOpen: true,
       photoIndex: index,
       photoTitle: imageTitles[index],
+    }, () => {
+      console.log(this.state)
     });
   }
 
   prevImage() {
     return () => this.setState({
-      photoIndex: (this.state.photoIndex + images.length - 1) % images.length,
-      photoTitle: imageTitles[(this.state.photoIndex + images.length - 1) % images.length]
+      photoIndex: this.decrementedIndex(),
+      photoTitle: imageTitles[this.decrementedIndex()]
     });
   }
 
   nextImage() {
     return () => this.setState({
-      photoIndex: (this.state.photoIndex + 1) % images.length,
-      photoTitle: imageTitles[(this.state.photoIndex + 1) % images.length]
+      photoIndex: this.incrementedIndex(),
+      photoTitle: imageTitles[this.incrementedIndex()]
     });
   }
 
   close() {
     return () => this.setState({isOpen: false});
+  }
+
+  incrementedIndex() {
+    console.log((this.state.photoIndex + 1) % images.length);
+    return (this.state.photoIndex + 1) % images.length;
+  }
+  
+  decrementedIndex() {
+    console.log((this.state.photoIndex + images.length - 1) % images.length);
+    return (this.state.photoIndex + images.length - 1) % images.length;
   }
 }
 
