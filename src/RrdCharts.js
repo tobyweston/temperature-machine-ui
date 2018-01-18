@@ -10,6 +10,12 @@ const images = [
   'temperature-30-days.png'
 ];
 
+const imageTitles = [
+  '24 Hours',
+  '7 Days',
+  '1 Month'
+];
+
 class RrdCharts extends React.Component {
 
   constructor(props) {
@@ -28,17 +34,17 @@ class RrdCharts extends React.Component {
           <Grid>
             <Row>
               <Col md={4}>
-                <div className='image-link' onClick={this.setPhoto(0, '24 Hours')}>
+                <div className='image-link' onClick={this.setPhoto(0)}>
                   <RrdChart label="24 Hours" file={ images[0] }/>
                 </div>
               </Col>
               <Col md={4}>
-                <div className='image-link' onClick={this.setPhoto(1, '7 Days')}>
+                <div className='image-link' onClick={this.setPhoto(1)}>
                   <RrdChart label="7 Days" file={ images[1] } />
                 </div>
               </Col>
               <Col md={4}>
-                <div className='image-link' onClick={this.setPhoto(2, '1 Month')}>
+                <div className='image-link' onClick={this.setPhoto(2)}>
                   <RrdChart label="1 Month" file={ images[2] } />
                 </div>
               </Col>
@@ -61,23 +67,25 @@ class RrdCharts extends React.Component {
     )
   }
 
-  setPhoto(index, title) {
+  setPhoto(index) {
     return () => this.setState({
       isOpen: true,
       photoIndex: index,
-      photoTitle: title
+      photoTitle: imageTitles[index],
     });
   }
 
   prevImage() {
     return () => this.setState({
       photoIndex: (this.state.photoIndex + images.length - 1) % images.length,
+      photoTitle: imageTitles[(this.state.photoIndex + images.length - 1) % images.length]
     });
   }
 
   nextImage() {
     return () => this.setState({
       photoIndex: (this.state.photoIndex + 1) % images.length,
+      photoTitle: imageTitles[(this.state.photoIndex + 1) % images.length]
     });
   }
 
