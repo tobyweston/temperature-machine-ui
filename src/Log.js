@@ -46,7 +46,7 @@ class Log extends Component {
       <Refresh refresh={ (event) => this.refresh(event) }/>
       { 
         this.state.log.map((value, index) => {
-          let time = moment(value.time.instant);
+          let time = moment(value.time);
           return <div className='log-row'>
             <span className='time'>{ time.format("ddd DD-MMM-YYYY") }</span>
             <span className='hours'>{ time.format("HH:mm:ss") }</span>
