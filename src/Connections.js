@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Spinner from './Spinner';
 import axios from "axios";
 import SidebarMenu from "./SidebarMenu";
-import {Col, Grid, Row} from 'react-bootstrap';
+import {Col, Row} from 'react-bootstrap';
 
 import './css/connections.css';
 
@@ -13,7 +13,8 @@ class Connections extends Component {
     this.state = {
       loading: true,
       error: null,
-      connections: []
+      connections: [],
+      version: null
     }
   }
 
@@ -35,10 +36,17 @@ class Connections extends Component {
     else if (this.state.error)
       element = <pre className="error">{this.state.error.toString()}</pre>;
     else
-      element = this.renderConnections();
+      element = this.renderBody();
     return element;
   }
 
+  renderBody() {
+    return <div>
+      { this.renderConnections() }
+      { this.renderVersionInfo() }
+    </div>
+  }
+  
   renderConnections() {
     return <div>
       <Row>
@@ -50,37 +58,81 @@ class Connections extends Component {
       <div className='main'>
         <p>Connections active in the last 5 minutes.</p>
         <table>
-        {
-          this.state.connections.map((value, index) => {
-            return <tr>
-                <td key={index}>{value.host.name}</td>
+          <tbody>
+          {
+            this.state.connections.map((value, index) => {
+              return <tr key={index}>
+                <td>{value.host.name}</td>
                 <td>{value.ip.value}</td>
               </tr>;
-          })
-        }
+            })
+          }
+          </tbody>
         </table>
       </div>
     </div>
   }
 
+  renderVersionInfo() {
+    return <div>
+      <Row>
+        <Col md={12}>
+          <h1>Server Info</h1>
+        </Col>
+      </Row>
+
+      <div className='main'>
+        <table>
+          <tbody>
+            <tr>
+              <td>version</td>
+              <td>{this.state.version.version} ({this.state.version.latestSha})</td>
+            </tr>
+            <tr>
+              <td>scala version</td>
+              <td>{this.state.version.scalaVersion}</td>
+            </tr>
+            <tr>
+              <td>sbt version</td>
+              <td>{this.state.version.sbtVersion}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+
+
   componentDidMount() {
     this.fetchConnections();
   }
 
+  getConnections() {
+    return axios.get('/connections')
+  }
+
+  getServerVersion() {
+    return axios.get('/version')
+  }
+
   fetchConnections() {
-    axios.get('/connections')
-        .then(response => {
-          this.setState({
-            loading: false,
-            error: null,
-            connections: response.data
-          })
-        })
+    let that = this; // i have no idea why I need this
+    axios.all([this.getConnections(), this.getServerVersion()])
+        .then(axios.spread(function (connections, version) {
+              that.setState({
+                loading: false,
+                error: null,
+                connections: connections.data,
+                version: version.data
+              });
+            }
+        ))
         .catch(error => {
+          console.log(error)
           this.setState({
             loading: false,
             error: error
-          })
+          });
         });
   }
 
