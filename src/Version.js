@@ -26,7 +26,7 @@ class Version extends Component {
 
 
     return (
-      <div className="version">
+      <div className="version text-muted">
         { element }
       </div>
     );
