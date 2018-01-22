@@ -11,6 +11,7 @@ class Log extends Component {
     super(props);
     this.state = {
       loading: true,
+      refreshing: false,
       error: null,
       log: null
     }
@@ -43,7 +44,7 @@ class Log extends Component {
 
   renderLog() {
     return <pre className="log-data">
-      <Refresh refresh={ (event) => this.refresh(event) }/>
+      <Refresh refreshing={ this.state.refreshing } refresh={ (event) => this.refresh(event) }/>
       { 
         this.state.log.map((value, index) => {
           let time = moment(value.time);
@@ -70,6 +71,7 @@ class Log extends Component {
         .then(response => {
           this.setState({
             loading: false,
+            refreshing: false,
             error: null,
             log: response.data
           })
@@ -77,12 +79,16 @@ class Log extends Component {
         .catch(error => {
           this.setState({
             loading: false,
+            refreshing: false,
             error: error
           })
         });
   }
 
   refresh(event) {
+    this.setState({
+      refreshing: true
+    });
     event.preventDefault();
     this.fetchLog();
   }

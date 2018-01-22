@@ -13,6 +13,7 @@ class JsonChart extends React.Component {
     super(props);
     this.state = {
       loading: true,
+      refreshing: false,
       error: null,
       chartData: {
         datasets: [ ]
@@ -69,7 +70,7 @@ class JsonChart extends React.Component {
 
     return <div>
       <div className="chart-heading">
-        <p>Last 24 Hours</p><Refresh refresh={ (event) => this.refreshChart(event) }/>
+        <p>Last 24 Hours</p><Refresh refreshing={ this.state.refreshing } refresh={ (event) => this.refreshChart(event) }/>
       </div>
       <div className="chart-area">
         { element }
@@ -84,6 +85,7 @@ class JsonChart extends React.Component {
         .then(response => {
           this.setState({
             loading: false,
+            refreshing: false,
             error: null,
             chartData: {
               datasets: response.data.map((dataset, index) =>
@@ -101,12 +103,16 @@ class JsonChart extends React.Component {
         .catch(error => {
           this.setState({
             loading: false,
+            refreshing: false,
             error: error
           })
         });
   }
 
   refreshChart(event) {
+    this.setState({
+      refreshing: true
+    });
     event.preventDefault();
     this.fetchJson();
   }
