@@ -83,8 +83,11 @@ class Log extends Component {
   }
 
   refresh(event) {
-    event.preventDefault();
-    this.fetchLog();
+    return (onComplete) => {
+      event.preventDefault();
+      this.fetchLog();
+      onComplete();
+    }
   }
 }
 

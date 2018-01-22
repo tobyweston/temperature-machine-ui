@@ -107,8 +107,11 @@ class JsonChart extends React.Component {
   }
 
   refreshChart(event) {
-    event.preventDefault();
-    this.fetchJson();
+    return (onComplete) => {
+      event.preventDefault();
+      this.fetchJson();
+      onComplete();
+    }
   }
 }
 
