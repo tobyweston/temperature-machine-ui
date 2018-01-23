@@ -48,7 +48,7 @@ class Log extends Component {
       { 
         this.state.log.map((value, index) => {
           let time = moment(value.time);
-          return <div className='log-row'>
+          return <div key={ index } className='log-row'>
             <span className='time'>{ time.format("ddd DD-MMM-YYYY") }</span>
             <span className='hours'>{ time.format("HH:mm:ss") }</span>
             <span className='millis'>{ time.format(".SSS") }</span>
