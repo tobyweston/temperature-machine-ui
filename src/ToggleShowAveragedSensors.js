@@ -7,8 +7,8 @@ class ShowAveragedSensors extends Component {
   render() {
     return (
       <div className='selection'>
-        <a className='bm-item-selection' href='' onClick={ event => this.averaged(event) }><i className={ this.isSelected(this.props.showAveragedSensors) } aria-hidden='true'/><span>Averaged</span></a>
-        <a className='bm-item-selection' href='' onClick={ event => this.allSensors(event) }><i className={ this.isSelected(!this.props.showAveragedSensors) } aria-hidden='true'/><span>All sensors</span></a>
+        <a className='bm-item-selection averaged' href='' onClick={ event => this.averaged(event) }><i className={ this.isSelected(this.props.showAveragedSensors) } aria-hidden='true'/><span>Averaged</span></a>
+        <a className='bm-item-selection all_sensors' href='' onClick={ event => this.allSensors(event) }><i className={ this.isSelected(!this.props.showAveragedSensors) } aria-hidden='true'/><span>All sensors</span></a>
       </div>
     );
   }

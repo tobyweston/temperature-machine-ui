@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "cypress": "^1.4.1",
+    "npm-run-all": "^4.1.2",
     "react-scripts": "0.9.0"
   },
   "proxy": "http://localhost:11900",
@@ -24,7 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "run-p --race start cypress:run",
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   }
 }
