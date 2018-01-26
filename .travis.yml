@@ -1,2 +1,13 @@
+language: node_js
+
+node_js:
+  - 9.3.0
+
+install:
+  - npm install
+  
+before_script:
+  - npm start &
+  
 script:
   - cypress run --record
