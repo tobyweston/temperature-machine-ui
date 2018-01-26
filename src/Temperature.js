@@ -12,9 +12,10 @@ class Temperature extends React.Component {
 
   renderTemperature(sensor, numberOfSensors) {
     const celsius = Math.round(sensor.temperature.celsius * 10) / 10;
+    const source = this.props.source;
     return <div key={sensor.name}>
-      <span className="temperature">{ celsius }</span> <span className="scale">°C</span>
-      <p className="source">{ this.props.source } { numberOfSensors > 1 && <span className="sensor">({ sensor.name })</span> } </p>
+      <span className={ 'temperature ' + source }>{ celsius }</span> <span className='scale'>°C</span>
+      <p className={ 'source ' + source }>{ source } { numberOfSensors > 1 && <span className='sensor'>({ sensor.name })</span> } </p>
     </div>;
 
   }

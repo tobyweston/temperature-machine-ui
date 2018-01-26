@@ -1,0 +1,40 @@
+{
+  "measurements" : [
+    {
+      "host" : "study",
+      "seconds" : 1516992222,
+      "sensors" : [
+        {
+          "name" : "28-031591c760ff",
+          "temperature" : {
+            "celsius" : 19.25
+          }
+        }
+      ]
+    },
+    {
+      "host" : "bedroom2",
+      "seconds" : 1516992197,
+      "sensors" : [
+        {
+          "name" : "28-0115910f5eff",
+          "temperature" : {
+            "celsius" : 18.5625
+          }
+        }
+      ]
+    },
+    {
+      "host" : "bedroom1",
+      "seconds" : 1516992208,
+      "sensors" : [
+        {
+          "name" : "Average",
+          "temperature" : {
+            "celsius" : 21.125
+          }
+        }
+      ]
+    }
+  ]
+}
