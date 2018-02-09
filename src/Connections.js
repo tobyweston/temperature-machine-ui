@@ -59,6 +59,7 @@ class Connections extends Component {
                 <td>{ value.host.name }</td>
                 <td>{ value.ip.value }</td>
                 <td><Version host={ value.ip.value }/></td>
+                <td>{ this.timezone(value.host) } </td>
               </tr>;
             })
           }
@@ -89,6 +90,13 @@ class Connections extends Component {
         });
   }
 
+  timezone(host) {
+    if (host.uctOffset)
+      return "Timezone " + host.utcOffset;
+    else
+      return "";
+  }
+  
 }
 
 export default Connections;
