@@ -64,7 +64,7 @@ class Temperatures extends React.Component {
   renderTemperatures(measurements) {
     return <div> {
       measurements.map(measurement => {
-        return <Temperature key={measurement.host} sensors={measurement.sensors} lastUpdate={measurement.seconds} source={measurement.host} />
+        return <Temperature key={measurement.host.name} sensors={measurement.sensors} lastUpdate={measurement.seconds} source={measurement.host.name} />
       })
     } </div>;
   }
@@ -78,8 +78,8 @@ class Temperatures extends React.Component {
             loading: false,
             error: null,
             measurements: response.data.measurements.sort(function(a, b) {
-              if (a.host < b.host) return -1;
-              if (a.host > b.host) return 1;
+              if (a.host.name < b.host.name) return -1;
+              if (a.host.name > b.host.name) return 1;
               return 0;
             })
           });
