@@ -1,7 +1,10 @@
 {
   "measurements" : [
     {
-      "host" : "study",
+      "host" : {
+        "name" : "study",
+        "utcOffset" : null
+      },
       "seconds" : 1516992222,
       "sensors" : [
         {
@@ -13,7 +16,10 @@
       ]
     },
     {
-      "host" : "bedroom2",
+      "host" : {
+        "name" : "bedroom2",
+        "utcOffset" : null
+      },
       "seconds" : 1516992197,
       "sensors" : [
         {
@@ -25,7 +31,10 @@
       ]
     },
     {
-      "host" : "bedroom1",
+      "host" : {
+        "name" : "bedroom1",
+        "utcOffset" : null
+      },
       "seconds" : 1516992208,
       "sensors" : [
         {

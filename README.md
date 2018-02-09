@@ -43,4 +43,7 @@ Run the Cypress tests using the following:
     npm test
     
 It runs `cypress run` without the `--record` option. This means the run isn't uploaded to the Cypress dashboard. It is however running on [Travis](https://travis-ci.org/tobyweston/temperature-machine-ui) which will publish results at [https://dashboard.cypress.io/#/projects/89unj1](https://dashboard.cypress.io/#/projects/89unj1). 
-    
+
+During development you probably want to run:
+
+    $(npm bin)/cypress open    
