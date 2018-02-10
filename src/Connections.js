@@ -91,8 +91,8 @@ class Connections extends Component {
   }
 
   timezone(host) {
-    if (host.uctOffset)
-      return "Timezone " + host.utcOffset;
+    if (host.utcOffset)
+      return <span className='text-muted'>{"UTC " + host.utcOffset}</span>;
     else
       return "";
   }
