@@ -4,6 +4,7 @@ import {Line} from "react-chartjs-2";
 import Spinner from './Spinner';
 import Refresh from './Refresh';
 import moment from 'moment-timezone';
+// import TimezonePicker from 'react-timezone';
 import TimezonePicker from 'react-bootstrap-timezone-picker';
 import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 import './css/dynamicchart.css';
