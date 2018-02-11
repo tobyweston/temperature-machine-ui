@@ -8,3 +8,8 @@
 .chart-area {
     margin-top: 5px;
 }
+
+.timezone {
+    float: right;
+    font-size: small !important;
+}

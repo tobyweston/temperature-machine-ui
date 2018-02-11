@@ -3,7 +3,7 @@ import axios from "axios";
 import {Line} from "react-chartjs-2";
 import Spinner from './Spinner';
 import Refresh from './Refresh';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import './css/dynamicchart.css';
 
 
@@ -44,6 +44,14 @@ class JsonChart extends React.Component {
             displayFormats: {
               hour: 'H:mm'
             }
+          }, 
+          ticks: {
+            callback: function(value, index, values) {
+              if (!values[index]) {
+                return
+              }
+              return moment.utc(values[index]['value']).format('H:mm');
+            }
           }
         }]
       },
@@ -71,6 +79,7 @@ class JsonChart extends React.Component {
     return <div>
       <div className="chart-heading">
         <p>Last 24 Hours</p><Refresh refreshing={ this.state.refreshing } refresh={ (event) => this.refreshChart(event) }/>
+        <span className='timezone'>{ this.props.timezone }</span>
       </div>
       <div className="chart-area">
         { element }

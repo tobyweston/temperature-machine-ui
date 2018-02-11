@@ -28,7 +28,7 @@ class Home extends Component {
                 <Temperatures showAveragedSensors={this.state.showAveragedSensors} forceRefresh={this.state.forceRefresh}/>
               </Col>
               <Col md={9}>
-                <JsonChart/>
+                <JsonChart timezone={ this.props.timezone }/>
               </Col>
             </Grid>
           </Jumbotron>
