@@ -7,7 +7,7 @@
     "npm-run-all": "^4.1.2",
     "react-scripts": "0.9.0"
   },
-  "proxy": "http://localhost:11900",
+  "proxy": "http://10.0.1.10:11900",
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
@@ -17,6 +17,7 @@
     "moment-timezone": "^0.5.14",
     "react": "^15.6.2",
     "react-bootstrap": "^0.30.10",
+    "react-bootstrap-timezone-picker": "^1.0.12",
     "react-burger-menu": "^2.2.3",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^15.6.2",

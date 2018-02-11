@@ -4,6 +4,8 @@ import {Line} from "react-chartjs-2";
 import Spinner from './Spinner';
 import Refresh from './Refresh';
 import moment from 'moment-timezone';
+import TimezonePicker from 'react-bootstrap-timezone-picker';
+import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 import './css/dynamicchart.css';
 
 
@@ -26,6 +28,7 @@ class JsonChart extends React.Component {
   }
 
   render() {
+    let timezone = this.props.timezone;
     const options = {
       spanGaps: false,
       legend: {
@@ -50,7 +53,7 @@ class JsonChart extends React.Component {
               if (!values[index]) {
                 return
               }
-              return moment.utc(values[index]['value']).format('H:mm');
+              return moment.utc(values[index]['value']).tz(timezone).format('H:mm');
             }
           }
         }]
@@ -79,7 +82,13 @@ class JsonChart extends React.Component {
     return <div>
       <div className="chart-heading">
         <p>Last 24 Hours</p><Refresh refreshing={ this.state.refreshing } refresh={ (event) => this.refreshChart(event) }/>
-        <span className='timezone'>{ this.props.timezone }</span>
+        <TimezonePicker className='timezone'
+            absolute={ true }
+            defaultValue={ this.props.timezone }
+            placeholder="Select timezone..."
+            onChange={this.props.onTimezoneChange}
+        />
+        {/*<span className='timezone'>{ this.props.timezone }</span>*/}
       </div>
       <div className="chart-area">
         { element }

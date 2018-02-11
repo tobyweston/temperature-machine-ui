@@ -33,11 +33,14 @@ class App extends Component {
   }
   
   home() {
-    return () => <Home timezone={this.state.timezone} />
+    return () => <Home timezone={ this.state.timezone } onTimezoneChange={ (timezone) => this.setTimezone(timezone) } />
   }
   
   setTimezone(timezone) {
-    moment.tz.setDefault(timezone)
+    moment.tz.setDefault(timezone);
+    this.setState({
+      timezone: timezone
+    });
   }
 }
 
