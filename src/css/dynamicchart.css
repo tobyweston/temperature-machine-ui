@@ -15,12 +15,14 @@
     width: 50%;
 }
 
-.timezone-picket-textfield input {
+.timezone-picker-textfield input {
     border: 1px solid #ccc;
     font-size: x-small;
+    font-weight: 200;
     border-radius: 5px;
 }
 
-.timezone-picket-textfield ul {
+.timezone-picker-textfield ul {
     font-size: x-small;
+    font-weight: 200;
 }
