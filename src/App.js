@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       timezone: "UTC",
       showAveragedSensors: true,
-      forceRefresh: false
+      forceRefreshOfAveragedSensors: false
     }
   }
 
@@ -40,7 +40,7 @@ class App extends Component {
   
   home() {
     return () => {
-      return <Home timezone={ this.state.timezone } forceRefresh={ this.state.forceRefresh } showAveragedSensors={ this.state.showAveragedSensors } onTimezoneChange={ (timezone) => this.setTimezone(timezone) } /> 
+      return <Home timezone={ this.state.timezone } forceRefreshOfAveragedSensors={ this.state.forceRefreshOfAveragedSensors } showAveragedSensors={ this.state.showAveragedSensors } onTimezoneChange={ (timezone) => this.setTimezone(timezone) } /> 
     }
   }
   
@@ -55,11 +55,11 @@ class App extends Component {
     if (this.state.showAveragedSensors !== newValue) {
       this.setState({
         showAveragedSensors: newValue,
-        forceRefresh: true
+        forceRefreshOfAveragedSensors: true
       }, () => {
         // a callback run after setState is applied (attempt to toggle and force a refresh without spinning)
         this.setState({
-          forceRefresh: false
+          forceRefreshOfAveragedSensors: false
         })
       })
     }

@@ -52,7 +52,7 @@ class Temperatures extends React.Component {
   }
 
   possiblyForceRefresh() {
-    if (this.props.forceRefresh) {
+    if (this.props.forceRefreshOfAveragedSensors) {
       this.fetchCurrentTemperatures();
     }
   }
