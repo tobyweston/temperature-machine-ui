@@ -24,7 +24,7 @@ class App extends Component {
         <Router>
           <div>
             <Band/>
-            <Route exact={true} path="/" component={ this.home() } />
+            <Route exact={true} path="/" render={ this.home() } />
             <Route path="/logs" component={ Logs } />
             <Route path="/connections" component={ Connections } />
           </div>
@@ -33,7 +33,9 @@ class App extends Component {
   }
   
   home() {
-    return () => <Home timezone={ this.state.timezone } onTimezoneChange={ (timezone) => this.setTimezone(timezone) } />
+    return () => {
+      return <Home timezone={ this.state.timezone } onTimezoneChange={ (timezone) => this.setTimezone(timezone) } /> 
+    }
   }
   
   setTimezone(timezone) {

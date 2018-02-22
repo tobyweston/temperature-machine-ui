@@ -78,7 +78,7 @@ class JsonChart extends React.Component {
     else if (this.state.error)
       element = <pre>{ this.state.error.toString() }</pre>;
     else
-      element = <Line data={ this.state.chartData } options={options}/>;
+      element = <Line data={ this.state.chartData } options={ options } redraw={ true } />;
 
     return <div>
       <div className="chart-heading">
@@ -89,7 +89,6 @@ class JsonChart extends React.Component {
             placeholder="Select timezone..."
             onChange={this.props.onTimezoneChange}
         />
-        {/*<span className='timezone'>{ this.props.timezone }</span>*/}
       </div>
       <div className="chart-area">
         { element }
