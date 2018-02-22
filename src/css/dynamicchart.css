@@ -11,5 +11,16 @@
 
 .timezone {
     float: right;
-    font-size: small !important;
+    margin-right: 18px;
+    width: 50%;
+}
+
+.timezone-picket-textfield input {
+    border: 1px solid #ccc;
+    font-size: x-small;
+    border-radius: 5px;
+}
+
+.timezone-picket-textfield ul {
+    font-size: x-small;
 }
