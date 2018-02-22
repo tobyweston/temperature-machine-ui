@@ -8,7 +8,6 @@ import {Col, Row} from 'react-bootstrap';
 
 
 import './css/logs.css';
-import SidebarMenu from "./SidebarMenu";
 
 class Logs extends Component {
 
@@ -27,7 +26,6 @@ class Logs extends Component {
 
   renderLayout(element) {
     return <div className='logs-component'>
-      <SidebarMenu/>
       {element}
     </div>
   }

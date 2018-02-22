@@ -10,7 +10,7 @@ class SidebarMenu extends Component {
   render() {
     return (
       <Menu>
-        { this.renderHref('/', '', <i className='fa fa-thermometer-half' aria-hidden='true'/>, 'Temperatures')}
+        <Link to='' onClick={ console.log('click a menu') }><i className="fa fa-thermometer-half"/><span>Temperatures</span></Link>
         <ToggleShowAveragedSensors showAveragedSensors={ this.props.showAveragedSensors } onToggleShowAveragedSensors={ this.props.onToggleShowAveragedSensors } />
         <Link to='logs'><i className="fa fa-archive"/><span>Logs</span></Link>
         <Link to='connections'><i className="fa fa-plug"/><span>Live Connections</span></Link>

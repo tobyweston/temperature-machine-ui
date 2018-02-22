@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Spinner from './Spinner';
 import Version from './Version';
 import axios from "axios";
-import SidebarMenu from "./SidebarMenu";
 import {Col, Row} from 'react-bootstrap';
 
 import './css/connections.css';
@@ -25,7 +24,6 @@ class Connections extends Component {
 
   renderLayout(element) {
     return <div className='connections-component'>
-      <SidebarMenu/>
       {element}
     </div>
   }
