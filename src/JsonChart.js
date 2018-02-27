@@ -24,6 +24,10 @@ class JsonChart extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this.fetchConnections();
+  }
+  
   componentDidMount() {
     this.fetchJson();
   }
@@ -87,6 +91,7 @@ class JsonChart extends React.Component {
             absolute={ true }
             defaultValue={ this.props.timezone }
             placeholder="Select timezone..."
+            value={ this.props.timezone }
             onChange={this.props.onTimezoneChange}
         />
       </div>
@@ -133,6 +138,22 @@ class JsonChart extends React.Component {
     });
     event.preventDefault();
     this.fetchJson();
+  }
+
+  fetchConnections() {
+    axios.get('/connections')
+        .then(response => {
+          const server = response.headers['x-forwarded-host'];
+          this.updateTimezone(response.data, server);
+        })
+  }
+  
+  updateTimezone(connections, serverIp) {
+    const server = connections.find(connection => {
+      return connection.ip.value === serverIp;
+    });
+    if (server)
+      this.props.onTimezoneChange(server.host.timezone)
   }
 }
 
