@@ -96,12 +96,10 @@ class RrdCharts extends React.Component {
   }
 
   incrementedIndex() {
-    console.log((this.state.photoIndex + 1) % images.length);
     return (this.state.photoIndex + 1) % images.length;
   }
   
   decrementedIndex() {
-    console.log((this.state.photoIndex + images.length - 1) % images.length);
     return (this.state.photoIndex + images.length - 1) % images.length;
   }
 }
