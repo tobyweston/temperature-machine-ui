@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "cypress": "^1.4.1",
+    "cypress": "^1.4.2",
     "npm-run-all": "^4.1.2",
     "react-scripts": "0.9.0"
   },
@@ -11,17 +11,16 @@
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
-    "chart.js": "^2.7.1",
+    "chart.js": "^2.7.2",
     "font-awesome": "^4.7.0",
-    "moment": "^2.20.1",
     "moment-timezone": "^0.5.14",
     "react": "^15.6.2",
     "react-bootstrap": "^0.30.10",
     "react-bootstrap-timezone-picker": "^1.0.12",
-    "react-burger-menu": "^2.2.3",
+    "react-burger-menu": "^2.3.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^15.6.2",
-    "react-image-lightbox": "^4.4.1",
+    "react-image-lightbox": "^4.5.0",
     "react-imageloader": "^2.1.0",
     "react-router-dom": "^4.2.2"
   },
