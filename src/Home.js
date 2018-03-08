@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Temperatures from './Temperatures';
+// import Temperatures from './Temperatures';
+import LiveTemperatures from './LiveTemperatures';
 import RrdCharts from './RrdCharts';
 import Footer from './Footer';
 import {Col, Grid, Jumbotron} from 'react-bootstrap';
@@ -14,7 +15,8 @@ class Home extends Component {
           <Jumbotron>
             <Grid>
               <Col md={3}>
-                <Temperatures showAveragedSensors={this.props.showAveragedSensors} forceRefreshOfAveragedSensors={this.props.forceRefreshOfAveragedSensors}/>
+                {/*<Temperatures showAveragedSensors={this.props.showAveragedSensors} forceRefreshOfAveragedSensors={this.props.forceRefreshOfAveragedSensors}/>*/}
+                <LiveTemperatures showAveragedSensors={this.props.showAveragedSensors} forceRefreshOfAveragedSensors={this.props.forceRefreshOfAveragedSensors} />
               </Col>
               <Col md={9}>
                 <JsonChart timezone={ this.props.timezone } onTimezoneChange={ this.props.onTimezoneChange }/>
