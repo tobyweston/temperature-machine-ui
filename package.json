@@ -14,6 +14,7 @@
     "chart.js": "^2.7.2",
     "font-awesome": "^4.7.0",
     "moment-timezone": "^0.5.14",
+    "npm": "^5.7.1",
     "react": "^15.6.2",
     "react-bootstrap": "^0.30.10",
     "react-bootstrap-timezone-picker": "^1.0.12",
