@@ -27,7 +27,7 @@ class SidebarMenu extends Component {
         <Link onClick={ () => this.closeMenu() } to='connections'><i className="fa fa-plug"/><span>Live Connections</span></Link>
         { this.renderHref('http://temperature-machine.com/docs', '_blank', <i className='fa fa-file-text-o' aria-hidden='true'/>, 'Documentation')}
         { this.renderHref('http://github.com/tobyweston/temperature-machine', '_blank', <i className='fa fa-github-alt' aria-hidden='true'/>, 'Github')}
-        { this.renderHref('http://' + location.hostname + ':11900/temperatures.csv', '', <i className='fa fa-cloud-download' aria-hidden='true'/>, 'Export CSV')}
+        { this.renderHref('http://' + window.location.hostname + ':11900/temperatures.csv', '', <i className='fa fa-cloud-download' aria-hidden='true'/>, 'Export CSV')}
       </Menu>
     );
   }

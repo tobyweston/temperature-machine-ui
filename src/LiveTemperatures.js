@@ -43,8 +43,8 @@ class LiveTemperatures extends React.Component {
   
   renderTemperatures(measurements) {
     return <div> {
-      measurements.map(measurement => {
-        return <Temperature key={measurement.host} sensors={measurement.sensors} lastUpdate={measurement.seconds} source={measurement.host} />
+      measurements.map((measurement, index) => {
+        return <Temperature key={measurement.host + '-' + index} sensors={measurement.sensors} lastUpdate={measurement.seconds} source={measurement.host} />
       })
     } </div>;
   }
@@ -56,9 +56,9 @@ class LiveTemperatures extends React.Component {
   getUrl(showAveragedSensors) {
     let url = null;
     if (showAveragedSensors === true)
-      url = 'ws://localhost:11900/temperatures/live/average';
+      url = 'ws://' + window.location.host + '/temperatures/live/average';
     else
-      url = 'ws://localhost:11900/temperatures/live';
+      url = 'ws://' + window.location.host + '/temperatures/live';
     return url;
   }
 
