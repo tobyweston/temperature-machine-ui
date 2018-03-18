@@ -1,5 +1,4 @@
 import React from 'react';
-import Websocket from 'react-websocket';
 import Temperature from './Temperature'
 import Spinner from './Spinner';
 
@@ -10,14 +9,39 @@ class LiveTemperatures extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       error: null,
-      measurements: []
+      measurements: [],
+      socket: null
     }
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    if (this.props.showAveragedSensors !== nextProps.showAveragedSensors) {
+      if (this.state.socket) {
+        this.state.socket.close();
+      }      
+      this.setState({
+        socket: this.createSocket(nextProps.showAveragedSensors)
+      });
+    }
+  }
+  
+  componentDidMount() {
+    this.setState({
+      socket: this.createSocket(this.props.showAveragedSensors)
+    });
+  }
+  
+  createSocket(showAverage) {
+    const socket = new WebSocket(this.getUrl(showAverage));
+    socket.onopen = () => this.onSocketOpen();
+    socket.onmessage = (message) => this.onSocketData(message);
+    socket.onclose = () => this.onSocketClose();
+    return socket;
   }
 
   render() {
-    const url = this.getUrl(this.props.showAveragedSensors);
-
     return <div>
       <div className="temperatures-heading">
         <p>Current Temperature</p>
@@ -25,8 +49,6 @@ class LiveTemperatures extends React.Component {
       <div className="temperatures-area">
         { this.renderMainTemperatureArea() }
       </div>
-
-      <Websocket url={ url } onMessage={ this.update.bind(this) } />
     </div>
   }
 
@@ -40,7 +62,7 @@ class LiveTemperatures extends React.Component {
       element = this.renderTemperatures(this.state.measurements);
     return element;
   }
-  
+
   renderTemperatures(measurements) {
     return <div> {
       measurements.map((measurement, index) => {
@@ -62,16 +84,21 @@ class LiveTemperatures extends React.Component {
     return url;
   }
 
-  update(data) {
-    let latest = JSON.parse(data);
+  onSocketOpen() { }
+  
+  onSocketData(message) {
+    let latest = JSON.parse(message.data);
     this.setState({
-      measurements: latest.measurements.sort(function(a, b) {
+      loading: false,
+      measurements: latest.measurements.sort(function (a, b) {
         if (a.host < b.host) return -1;
         if (a.host > b.host) return 1;
         return 0;
       })
     });
   }
+
+  onSocketClose() { }
 }
 
 export default LiveTemperatures;

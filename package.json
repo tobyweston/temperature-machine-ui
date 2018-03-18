@@ -9,10 +9,10 @@
   },
   "proxy": {
     "/": {
-      "target": "http://10.0.1.10:11900"
+      "target": "http://localhost:11900"
     },
     "/temperatures/live": {
-      "target": "ws://10.0.1.10:11900",
+      "target": "ws://localhost:11900",
       "ws": true
     }
   },
@@ -29,10 +29,9 @@
     "react-burger-menu": "^2.3.0",
     "react-chartjs-2": "^2.7.0",
     "react-dom": "^15.6.2",
-    "react-image-lightbox": "^4.5.0",
+    "react-image-lightbox": "^4.6.0",
     "react-imageloader": "^2.1.0",
-    "react-router-dom": "^4.2.2",
-    "react-websocket": "^2.0.0"
+    "react-router-dom": "^4.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
