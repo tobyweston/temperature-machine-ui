@@ -33,6 +33,12 @@ class LiveTemperatures extends React.Component {
     });
   }
   
+  componentWillUnmount() {
+    if (this.state.socket) {
+      this.state.socket.close();
+    }
+  }
+  
   createSocket(showAverage) {
     const socket = new WebSocket(this.getUrl(showAverage));
     socket.onopen = () => this.onSocketOpen();
