@@ -18,6 +18,10 @@
     float: right;
 }
 
+.logs-component pre.error {
+    padding-left: 60px;
+}
+
 .logs-component .log-data, .log-error {
     margin-left: 60px;
     margin-right: 60px;

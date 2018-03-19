@@ -17,3 +17,7 @@
 .connections-component td {
     padding: 0 30px 10px 0;
 }
+
+.connections-component pre.error {
+    padding-left: 60px;
+}
